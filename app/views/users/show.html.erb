@@ -1,0 +1,20 @@
+<div class="media">
+  <% if @user.image.present? %>
+    <%= image_tag @user.image.to_s, size: 150, class: 'd-flex mr-3 rounded' %>
+  <% else %>
+    <%= image_tag 'giga_kaeru110-2.png', size: 150, class: 'd-flex mr-3 rounded' %>
+  <% end %>
+  <div class="media-body shadow p-3 rounded">
+    <h2 class="mt-0"><%= @user.name %></h2>
+    <div>
+      <p>
+        <% if @user.profile.present? %>
+          <%= @user.profile %>
+        <% else %>
+          <%= 'よろしくお願いします' %>
+        <% end %>
+      </p>
+      <%= link_to '編集', edit_user_url, class: 'btn btn-outline-dark' %>
+    </div>
+  </div>
+</div>
