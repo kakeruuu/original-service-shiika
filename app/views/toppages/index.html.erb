@@ -1,12 +1,16 @@
-<div class="jumbotron jumbotron-fluid bg-white">
-  <div class="container">
-         <div class="d-flex justify-content-between">
-            <div class="p-2">
-              <h1 class="display-3">詩歌〜shiika〜</h1>
-              <a href="#" class="btn btn-outline-dark">新規登録</a>
-            </div>
-          <div><img src="assets/giga_usa_006.png" class="img-fluid"></div>
-          <div><img src="assets/giga_kaelu1_200.png" class="img-fluid"></div>
+<% if logged_in? %>
+  <p>post</p>
+<% else %>
+  <div class="jumbotron jumbotron-fluid bg-white">
+    <div class="container">
+      <div class="d-flex justify-content-between">
+        <div class="p-2">
+          <h1 class="display-3">詩歌〜shiika〜</h1>
+          <a href="#" class="btn btn-outline-dark">新規登録</a>
         </div>
+        <div><img src="assets/giga_usa_006.png" class="img-fluid"></div>
+        <div><img src="assets/giga_kaelu1_200.png" class="img-fluid"></div>
+      </div>
+    </div>
   </div>
-</div>
+<% end %>
