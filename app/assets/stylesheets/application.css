@@ -14,3 +14,15 @@
  *= require_self
  */
 
+#post {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    position: absolute;
+    right: 0;
+    overflow-x: scroll;
+	width: 210vh;
+}
+
+ul {
+    list-style-type: none;
+}

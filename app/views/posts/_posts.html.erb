@@ -1,0 +1,21 @@
+<div id="post">
+    <ul>
+        <% posts.each do |post| %>
+        <li class="border mr-2 p-2">
+            <div class="row mr-2">
+                <% if post.user.image.present? %>
+                    <%= image_tag post.user.image.to_s, size: 50, class: 'rounded' %>
+                <% else %>
+                    <%= image_tag 'giga_kaeru110-2.png', size: 50, class: 'rounded' %>
+                <% end %>
+                <%= link_to post.user.name, user_path(post.user), class: 'd-flex align-items-center mt-3' %>
+            </div>
+            <h6><%= post.content %></h6>
+            <% if current_user == post.user %>
+                <%= link_to '削除', post, method: :delete, class: 'btn btn-danger btn-sm' %>
+            <% end %>
+        </li>
+        <% end %>
+        <%= paginate posts %>
+    </ul>
+</div>
