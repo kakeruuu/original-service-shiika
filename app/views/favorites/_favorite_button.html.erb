@@ -1,0 +1,12 @@
+<% if post.likes?(current_user) %>
+    <%= form_with(model: post.favorites.find_by(post_id: post.id), local: true, method: :delete) do |f| %>
+        <%= hidden_field_tag :post_id, post.id %>
+        <%= f.submit '解除', id: 'favorites' %>
+    <% end %>
+<% else %>
+    <%= form_with(model: post.favorites.build, local: true, method: :post) do |f| %>
+        <%= hidden_field_tag :post_id, post.id %>
+        <%= f.submit '登録', id: 'favorites' %>
+    <% end %>
+<% end %>
+    

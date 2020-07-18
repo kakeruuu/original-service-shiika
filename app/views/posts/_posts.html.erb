@@ -11,9 +11,12 @@
                 <%= link_to post.user.name, user_path(post.user), class: 'd-flex align-items-center mt-3' %>
             </div>
             <h6><%= post.content %></h6>
-            <% if current_user == post.user %>
-                <%= link_to '削除', post, method: :delete, class: 'btn btn-danger btn-sm' %>
-            <% end %>
+            <div class="d-flex">
+                <% if current_user == post.user %>
+                    <%= link_to '削除', post, method: :delete, class: 'btn btn-danger btn-sm' %>
+                <% end %>
+                <%= render 'favorites/favorite_button', post: post %>
+            </div>
         </li>
         <% end %>
         <%= paginate posts %>

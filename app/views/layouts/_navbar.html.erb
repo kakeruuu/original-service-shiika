@@ -10,7 +10,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li class="dropdown-item"><%= link_to 'マイページ', user_path(current_user), class: 'dropdown-item' %></li>
-                            <li class="dropdown-item"><%= link_to 'お気に入り', '#', class: 'dropdown-item' %></li>
+                            <li class="dropdown-item"><%= link_to 'お気に入り', likes_user_path(current_user), class: 'dropdown-item' %></li>
                             <li class="dropdown-item"><%= link_to '使い方', '#', class: 'dropdown-item' %></li>
                             <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'dropdown-item' %></li>
                         </ul>
