@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+body {
+    font-family: "游ゴシック"
+}
 
 #post {
     writing-mode: vertical-rl;
@@ -20,7 +23,12 @@
     position: absolute;
     right: 0;
     overflow-x: scroll;
-	width: 210vh;
+	width: 200vh;
+}
+
+h6{
+    font-family: "游ゴシック";
+    font-weight: 500;
 }
 
 ul {

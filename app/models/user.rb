@@ -7,6 +7,6 @@ class User < ApplicationRecord
     has_secure_password
     mount_uploader :image, ImagesUploader
     has_many :posts
-    has_many :favorites
-    has_many :likes, through: :favorites, source: :post
+    has_many :favorites, dependent: :destroy
+    has_many :likes, through: :favorites, source: :post, dependent: :destroy
 end

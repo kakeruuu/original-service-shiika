@@ -24,10 +24,15 @@ class PostsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
   
+  def tag
+    @hashtag = Tag.find_by(hashname: params[:name])
+    @post  = @hashtag.posts.page(params[:page]).per(9)
+  end
+  
   private 
   
   def post_params
-    params.require(:post).permit(:content)
+    params.require(:post).permit(:content, :two_content, :three_content, :four_content, :five_content, :tag_ids, :hashtag)
   end
   
   def correct_user

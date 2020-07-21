@@ -1,5 +1,5 @@
 <div id="post">
-    <ul>
+    <ul class="pt-3">
         <% posts.each do |post| %>
         <li class="border mr-2 p-2">
             <div class="row mr-2">
@@ -10,7 +10,14 @@
                 <% end %>
                 <%= link_to post.user.name, user_path(post.user), class: 'd-flex align-items-center mt-3' %>
             </div>
-            <h6><%= post.content %></h6>
+            <h6 id="content">
+                <%= post.content %>
+                <%= post.two_content %>
+                <%= post.three_content %>
+                <%= post.four_content %>
+                <%= post.five_content %>
+            </h6>
+                <%= post.hashtag.gsub(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/){|word| link_to word, "/post/tag/#{word.delete("#")}"}.html_safe %>
             <div class="d-flex">
                 <% if current_user == post.user %>
                     <%= link_to '削除', post, method: :delete, class: 'btn btn-danger btn-sm' %>

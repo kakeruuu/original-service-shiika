@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_17_223330) do
+ActiveRecord::Schema.define(version: 2020_07_20_224108) do
 
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -27,7 +27,27 @@ ActiveRecord::Schema.define(version: 2020_07_17_223330) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "two_content"
+    t.text "three_content"
+    t.text "four_content"
+    t.text "five_content"
+    t.text "hashtag"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "tag_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "post_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_tag_posts_on_post_id"
+    t.index ["tag_id"], name: "index_tag_posts_on_tag_id"
+  end
+
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "hashname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -43,4 +63,6 @@ ActiveRecord::Schema.define(version: 2020_07_17_223330) do
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "tag_posts", "posts"
+  add_foreign_key "tag_posts", "tags"
 end
