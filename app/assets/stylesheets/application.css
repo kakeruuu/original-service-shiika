@@ -13,24 +13,94 @@
  *= require_tree .
  *= require_self
  */
-body {
-    font-family: "游ゴシック"
+ 
+@font-face {
+  font-family: "YuGothic M";
+  src: local("Yu Gothic Medium"),
+       local("Yu Gothic");
+  font-weight: 500;
 }
 
+/*全体*/
+body {
+    background-color: #FFFFFF;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.fa-trash-alt {
+    color: #000000;
+    font-size: 1.5rem;
+}
+
+.fa-heart {
+    color: #FF0000;
+    font-size: 1.5rem;
+}
+
+/*top*/
+
+/*header*/
+header {
+    background-color: #4790BB;
+}
+
+/*show*/
+.media-body {
+    background-color: #2A5772;
+}
+
+btn {
+    color: #B0D7D5;
+}
+
+#show {
+    border-top: 2px solid #DDDDDD;
+}
+
+/*post*/
 #post {
     writing-mode: vertical-rl;
     text-orientation: upright;
     position: absolute;
     right: 0;
-    overflow-x: scroll;
-	width: 200vh;
+	width: 100%;
+	max-width: 100%;
+	overflow-x: scroll;
 }
 
-h6{
-    font-family: "游ゴシック";
-    font-weight: 500;
+#content {
+    border-right: 2px solid #DDDDDD;
 }
 
-ul {
-    list-style-type: none;
+#post-name {
+    font-size: 0.9rem;
+}
+
+#time {
+    font-size: 0.5rem;
+}
+
+#post-content {
+    font-size: 1.2rem;
+    letter-spacing: 0.8em;
+}
+
+#post-tag {
+    font-size: 0.8rem;
+}
+
+#post-page {
+    margin-right: 10px;
+    padding-right: 8px;
+    border-right: 2px solid #DDDDDD;
+}
+
+/*form*/
+.form-control {
+    border: none;
+    border-bottom: 1px solid #CCCCCC;
+    background-color: #EEEEEE;
 }

@@ -13,7 +13,7 @@ class PostsController < ApplicationController
       flash[:success] = '投稿に成功しました'
       redirect_to '/'
     else
-      flash[:danger] = '投稿に失敗しました'
+      flash.now[:info] = '投稿に失敗しました'
       render :new
     end
   end
@@ -26,13 +26,13 @@ class PostsController < ApplicationController
   
   def tag
     @hashtag = Tag.find_by(hashname: params[:name])
-    @post  = @hashtag.posts.page(params[:page]).per(9)
+    @post  = @hashtag.posts.order(id: :desc).page(params[:page]).per(20)
   end
   
   private 
   
   def post_params
-    params.require(:post).permit(:content, :two_content, :three_content, :four_content, :five_content, :tag_ids, :hashtag)
+    params.require(:post).permit(:content, :two_content, :three_content, :four_content, :five_content, :tag_ids, :hashtag, :haiku)
   end
   
   def correct_user

@@ -1,7 +1,7 @@
 class ToppagesController < ApplicationController
   def index
     if logged_in?
-      @posts = Post.all.page(params[:page]).per(9)
+      @posts = Post.order(id: :desc).page(params[:page]).per(20)
     end
   end
 end

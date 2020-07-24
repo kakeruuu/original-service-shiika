@@ -1,10 +1,11 @@
 class Post < ApplicationRecord
-    validates :content, format: { with: /\A[ぁ-んァ-ン一-龥]/}, length: { in: 4..9 }
-    validates :two_content, format: { with: /\A[ぁ-んァ-ン一-龥]/}, length: { in: 4..10 }
-    validates :three_content, format: { with: /\A[ぁ-んァ-ン一-龥]/}, length: { in: 4..9 }
-    validates :four_content, format: { with: /\A[ぁ-んァ-ン一-龥]/}, length: { in: 4..10 }
-    validates :five_content, format: { with: /\A[ぁ-んァ-ン一-龥]/}, length: { in: 4..10 }
+    validates :content, format: { with: /\A[ぁ-んァ-ン一-龥]/}, length: { maximum: 9 }
+    validates :two_content, format: { with: /\A[ぁ-んァ-ン一-龥]/}, length: { maximum: 10 }
+    validates :three_content, format: { with: /\A[ぁ-んァ-ン一-龥]/}, length: { maximum: 9 }
+    validates :four_content, format: { with: /\A[ぁ-んァ-ン一-龥]+|\A\z/ }, length: { maximum: 10 }
+    validates :five_content, format: { with: /\A[ぁ-んァ-ン一-龥]+|\A\z/ }, length: { maximum: 10 }
     validates :hashtag, presence: true
+    
     belongs_to :user
     has_many :favorites, dependent: :destroy
     has_many :likes, through: :favorites, source: :user, dependent: :destroy

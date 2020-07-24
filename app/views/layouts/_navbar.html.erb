@@ -1,17 +1,20 @@
-<header class="mb-2">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<header>
+    <nav class="navbar navbar-expand-sm navbar-light">
         <a class="navbar-brand" href="/">詩歌</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <% if logged_in? %>
                     <li class="nav-item"><%= link_to '今週のテーマ', '#', class: 'nav-link' %></li>
-                    <li class="nav-item"><%= link_to '投稿', new_post_path, class: 'nav-link' %></li>
+                    <li class="nav-item"><%= link_to '投稿', posts_path, class: 'nav-link' %></li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li class="dropdown-item"><%= link_to 'マイページ', user_path(current_user), class: 'dropdown-item' %></li>
                             <li class="dropdown-item"><%= link_to 'お気に入り', likes_user_path(current_user), class: 'dropdown-item' %></li>
-                            <li class="dropdown-item"><%= link_to '使い方', '#', class: 'dropdown-item' %></li>
+                            <li class="dropdown-item"><%= link_to '使い方', about_path, class: 'dropdown-item' %></li>
                             <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'dropdown-item' %></li>
                         </ul>
                     </li>

@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
     post.favorite(current_user)
     post.reload
     flash[:success] = 'お気に入りに登録しました'
-    redirect_to user_path(current_user)
+    redirect_to '/'
   end
 
   def destroy
@@ -14,6 +14,6 @@ class FavoritesController < ApplicationController
     post.unfavorite(current_user)
     post.reload
     flash[:danger] = 'お気に入りを解除しました'
-    redirect_to user_path(current_user)
+    redirect_to '/'
   end
 end

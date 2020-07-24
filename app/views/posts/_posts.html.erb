@@ -1,31 +1,42 @@
 <div id="post">
-    <ul class="pt-3">
+    <ul class="pt-3 mt-5">
         <% posts.each do |post| %>
-        <li class="border mr-2 p-2">
-            <div class="row mr-2">
-                <% if post.user.image.present? %>
-                    <%= image_tag post.user.image.to_s, size: 50, class: 'rounded' %>
-                <% else %>
-                    <%= image_tag 'giga_kaeru110-2.png', size: 50, class: 'rounded' %>
-                <% end %>
-                <%= link_to post.user.name, user_path(post.user), class: 'd-flex align-items-center mt-3' %>
-            </div>
-            <h6 id="content">
-                <%= post.content %>
-                <%= post.two_content %>
-                <%= post.three_content %>
-                <%= post.four_content %>
-                <%= post.five_content %>
-            </h6>
-                <%= post.hashtag.gsub(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/){|word| link_to word, "/post/tag/#{word.delete("#")}"}.html_safe %>
-            <div class="d-flex">
-                <% if current_user == post.user %>
-                    <%= link_to '削除', post, method: :delete, class: 'btn btn-danger btn-sm' %>
-                <% end %>
-                <%= render 'favorites/favorite_button', post: post %>
-            </div>
-        </li>
+            <li class="mr-2 p-2" id="content">
+                <div class="d-flex justify-content-sm-between mr-1">
+                    <div class="d-flex" id="post-name">
+                        <% if post.user.image.present? %>
+                            <%= image_tag post.user.image.to_s, size: 50, class: 'rounded' %>
+                        <% else %>
+                            <%= image_tag 'giga_kaeru110-2.png', size: 50, class: 'rounded' %>
+                        <% end %>
+                        <%= link_to post.user.name, user_path(post.user), class: 'd-flex align-items-center mt-3'%>
+                    </div>
+                    <div class="d-flex align-items-center mt-2" id="time">
+                        <%= post.created_at.to_s(:datetime_jp) %>
+                    </div>
+                    <div class="d-flex align-items-center mt-4">
+                        <% if current_user == post.user %>
+                            <%= link_to post, method: :delete, class: 'btn pr-2' do %>
+                                <i class="far fa-trash-alt"></i>
+                            <% end %>
+                        <% end %>
+                        <%= render 'favorites/favorite_button', post: post %>
+                    </div>
+                </div>
+                <div id="post-content" class="mr-3 ml-4 p-1 pt-5">
+                    <p><%= post.content %></p>
+                    <p><%= post.two_content %></p>
+                    <p><%= post.three_content %></p>
+                    <p><%= post.four_content %></p>
+                    <p><%= post.five_content %></p>
+                </div>
+                <div id="post-tag">
+                    <%= post.hashtag.gsub(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/){|word| link_to word, "/post/tag/#{word.delete("#")}"}.html_safe %>
+                </div>
+            </li>
         <% end %>
-        <%= paginate posts %>
+        <div id="post-page">
+            <%= paginate posts %>
+        </div>
     </ul>
 </div>
