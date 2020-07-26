@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        profile: プロフィール
+      post:
+        content: １行目
+        two_content: ２行目
+        three_content: ３行目
+        four_content: ４行目
+        five_content: ５行目
+        hashtag: ＃タグ

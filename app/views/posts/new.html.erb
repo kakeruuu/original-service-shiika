@@ -1,9 +1,10 @@
+<div class="col-sm-6 offset-sm-3">
+    <h2 class="text-center border-bottom p-3">投&nbsp;&nbsp;稿</h2>
+</div>
 <div class="col-sm-6 offset-sm-3 mt-4">
-    <h2 class="text-center border-bottom p-3">投　　稿</h2>
     <%= form_with(model: @post, local:true) do |f| %>
-        
+        <h2>1</h2>
         <%= render 'layouts/error_messages', model: f.object %>
-        
         <div class="border-bottom p-3">
             <div class="form-group row">
                 <%= f.label :content, '五：', class: 'col-sm-1 col-form-label'%>
@@ -39,18 +40,28 @@
                     <%= f.text_field :five_content, class: 'form-control' %>
                 </div>
             </div>
+            
+            <div class="d-flex">
+                <%= image_tag 'giga_kaeru110-2.png', size: 50, class: 'd-flex rounded mt-1' %>
+                <div class="col-sm-11 ml-4">
+                    <div class="balloon4 m-0 mt-1">
+                        <p>思いつかなかったら他の人の投稿を見るのもいいかも。。。！！</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
+        <h2>2</h2>
         <div class="border-bottom p-4 mt-2">
             <div class="form-group">
                 <%= f.label :hashtag, '#タグ：'%>
                 <%= f.text_field :hashtag, class: 'form-control' %>
             </div>
         </div>
-        
-        <div class="form-group mt-2">
-            <%= f.submit '投稿', class: 'btn btn-outline-dark'%>
+        <h2>3</h2>
+        <div class="form-group mt-3 text-center">
+            <%= button_tag type: 'submit', class: "btn btn-outline-light" do %>
+                投稿<i class="far fa-paper-plane ml-2"></i>
+            <% end %>
         </div>
-        
     <% end %>
 </div>

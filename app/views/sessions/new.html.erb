@@ -1,23 +1,27 @@
-<div class="col-sm-3 offset-sm-3 mt-3 mb-3">
-    <h1>ログイン</h1>
+<div class="col-sm-6 offset-sm-3 mt-3 mb-3">
+    <h2 class="text-center border-bottom p-3">ログイン</h2>
 </div>
 
 <div class="col-sm-6 offset-sm-3">
     <%= form_with(url: 'login', scope: :session, local: true) do |f| %>
-        <div class="form-group">
-            <%= f.label :email, 'メールアドレス：' %>
-            <%= f.email_field :email, class: 'form-control'%>
-        </div>
+    
+        <div class="border-bottom p-3">
+            <div class="form-group">
+                <%= f.label :email, 'メールアドレス：' %>
+                <%= f.email_field :email, class: 'form-control'%>
+            </div>
             
-        <div class="form-group">
-            <%= f.label :password, 'パスワード：' %>
-            <%= f.password_field :password, class: 'form-control'%>
+            <div class="form-group">
+                <%= f.label :password, 'パスワード：' %>
+                <%= f.password_field :password, class: 'form-control'%>
+            </div>
         </div>
-            
-        <div class="form-group">
-            <%= f.submit 'ログイン', class: 'btn btn-outline-dark'%>
-        </div>
-            
-        <%= link_to '新規登録', signup_path, class: 'btn btn-link' %>
+        
+        <div class="text-center">
+            <div class="form-group mt-4">
+                <%= f.submit 'ログイン', class: 'btn btn-outline-dark'%>
+            </div>
+            新規登録がまだの方はこちら→<%= link_to '新規登録', signup_path, class: 'btn btn-outline-dark' %>
+        </div>    
     <% end %>
 </div>

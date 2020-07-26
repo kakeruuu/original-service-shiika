@@ -1,28 +1,19 @@
-<div class="media m-3">
-    <% if @user.image.present? %>
-        <%= image_tag @user.image.to_s, size: 150, class: 'd-flex mr-3 rounded' %>
-    <% else %>
-        <%= image_tag 'giga_kaeru110-2.png', size: 150, class: 'd-flex mr-3 rounded' %>
-    <% end %>
-    <div class="media-body p-3 rounded text-white">
-        <h2 class="mt-0"><%= @user.name %></h2>
-        <div>
-            <p>
-                <% if @user.profile.present? %>
-                    <%= @user.profile %>
-                <% else %>
-                  <%= 'よろしくお願いします' %>
-                <% end %>
-            </p>
-            <% if current_user == @user %>
-                <%= link_to '編集', edit_user_url, class: 'btn btn-outline-light' %>
-            <% end %>
-        </div>
+<div class="card col-sm-2 offset-sm-5 mt-4 p-2">
+    <div class="card-body text-center text-white">
+        <h3 class="border-bottom p-2"><%= @user.name %></h3>
+    </div>
+    <div class="bg-white">
+        <% if @user.image.present? %>
+            <%= image_tag @user.image.to_s, size: 150, class: 'd-flex mr-3 rounded card-img-bottom' %>
+        <% else %>
+            <%= image_tag 'giga_kaeru110-2.png', size: 150, class: 'd-flex mr-3 rounded card-img-bottom' %>
+        <% end %>
     </div>
 </div>
 <ul class="mt-4 pr-4 pl-4">
+    <%= paginate @post %>
     <% @post.each do |post| %>
-        <li id="show">
+        <li class="mt-2" id="show">
             <div class="row p-2">
                 <div class="offset-sm-2 col-sm-10">
                     <div class="d-flex align-items-center mb-2">
@@ -49,5 +40,21 @@
     <% end %>
     <%= paginate @post %>
 </ul>
-
+<div class="media-body p-3 rounded text-white">
+    <h6 class="col-sm-2 p-2" id="profile">
+        プロフィール
+    </h6>
+    <p class="border-bottom pb-4">
+        <% if @user.profile.present? %>
+            <%= @user.profile %>
+        <% else %>
+            <%= 'よろしくお願いします！'%>
+        <% end %>
+    </p>
+    <% if current_user == @user %>
+        <%= link_to edit_user_url, class: 'btn btn-outline-light' do %>
+            編集<i class="fas fa-pen ml-2"></i>
+        <% end %>
+    <% end %>
+</div>
 

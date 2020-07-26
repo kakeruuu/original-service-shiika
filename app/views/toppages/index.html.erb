@@ -1,16 +1,7 @@
 <% if logged_in? %>
     <%= render 'posts/posts', posts: @posts %>
 <% else %>
-    <div class="jumbotron jumbotron-fluid bg-white">
-        <div class="container">
-            <div class="d-flex justify-content-between">
-            <div class="p-2">
-                <h1 class="display-3">詩歌</h1>
-                <h1>~shiika~</h1>
-                <a href="signup" class="btn btn-outline-dark">新規登録</a>
-            </div>
-            <div><img src="assets/sakura.png" class="img-fluid" id="top-img"></div>
-            </div>
-        </div>
+    <div class="d-flex" id="main">
+        <%= image_tag 'logo.png', id: 'top-img', class: "align-items-center" %>
     </div>
 <% end %>
