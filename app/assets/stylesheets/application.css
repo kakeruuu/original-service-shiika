@@ -46,9 +46,7 @@ ul {
 /*top*/
 #main {
     width: 100%;
-    display: flex;
-    margin : 0 auto;
-    text-align: center;
+    margin-top: 100px;
 }
 
 
@@ -58,22 +56,6 @@ header {
 }
 
 /*show*/
-.card {
-    background-color: #2A5772;
-}
-
-.media-body {
-    background-color: #2A5772;
-}
-
-#show {
-    border-top: 1px solid #DDDDDD;
-}
-
-#profile {
-    border-left: 4px solid;
-    border-bottom: 1px solid;
-}
 
 
 /*about*/

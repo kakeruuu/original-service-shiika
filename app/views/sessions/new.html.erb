@@ -17,11 +17,13 @@
             </div>
         </div>
         
-        <div class="text-center">
-            <div class="form-group mt-4">
-                <%= f.submit 'ログイン', class: 'btn btn-outline-dark'%>
+            <div class="form-group mt-4 text-center">
+                <%= button_tag type: 'submit', class: "btn btn-outline-light" do %>
+                    ログイン<i class="far fa-paper-plane ml-2"></i>
+                <% end %>
             </div>
-            新規登録がまだの方はこちら→<%= link_to '新規登録', signup_path, class: 'btn btn-outline-dark' %>
-        </div>    
+            <div class="text-center">
+                新規登録がまだの方はこちら→<%= link_to '新規登録', signup_path, class: 'btn btn-outline-dark' %>
+            </div>
     <% end %>
 </div>

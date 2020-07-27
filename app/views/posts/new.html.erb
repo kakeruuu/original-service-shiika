@@ -3,7 +3,7 @@
 </div>
 <div class="col-sm-6 offset-sm-3 mt-4">
     <%= form_with(model: @post, local:true) do |f| %>
-        <h2>1</h2>
+    
         <%= render 'layouts/error_messages', model: f.object %>
         <div class="border-bottom p-3">
             <div class="form-group row">
@@ -41,7 +41,7 @@
                 </div>
             </div>
             
-            <div class="d-flex">
+            <div class="d-flex text-white">
                 <%= image_tag 'giga_kaeru110-2.png', size: 50, class: 'd-flex rounded mt-1' %>
                 <div class="col-sm-11 ml-4">
                     <div class="balloon4 m-0 mt-1">
@@ -50,14 +50,14 @@
                 </div>
             </div>
         </div>
-        <h2>2</h2>
+        
         <div class="border-bottom p-4 mt-2">
             <div class="form-group">
                 <%= f.label :hashtag, '#タグ：'%>
                 <%= f.text_field :hashtag, class: 'form-control' %>
             </div>
         </div>
-        <h2>3</h2>
+        
         <div class="form-group mt-3 text-center">
             <%= button_tag type: 'submit', class: "btn btn-outline-light" do %>
                 投稿<i class="far fa-paper-plane ml-2"></i>
