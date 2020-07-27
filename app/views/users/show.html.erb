@@ -1,7 +1,7 @@
 <div class="media d-flex align-items-center border-bottom p-4">
     <div class="pl-2" id="show-image">
         <% if @user.image.present? %>
-            <%= image_tag @user.image.to_s, size: 150, class: 'rounded' %>
+            <%= image_tag @user.image.to_s, size: 150, class: 'rounded-circle' %>
         <% else %>
             <%= image_tag 'giga_kaeru110-2.png', size: 150, class: 'rounded' %>
         <% end %>
@@ -23,7 +23,9 @@
     </div>
 </div>
 <ul class="mt-4 pr-4 pl-4">
-    <%= paginate @post %>
+    <div class="border-bottom pb-4">
+        <%= paginate @post %>
+    </div>
     <% @post.each do |post| %>
         <li class="mt-2 border-bottom">
             <div class="row p-2">
@@ -50,6 +52,8 @@
             </div>
         </li>
     <% end %>
-    <%= paginate @post %>
+    <div class="pt-4">
+        <%= paginate @post %>
+    </div>
 </ul>
 
