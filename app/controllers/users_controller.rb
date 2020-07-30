@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show, :edit]
-  before_action :correct_user, only: [:edit]
   before_action :guest_user, only: [:edit]
+  before_action :correct_user, only: [:edit]
+  
   
   def show
     @user = User.find(params[:id])
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-
+  
   def create
     @user = User.new(user_params)
     
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
   def correct_user
     @user = current_user
     unless @user
-      redirect_to '/'
+      redirect_to root_url
     end
   end
 end
