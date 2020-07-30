@@ -9,4 +9,12 @@ class ApplicationController < ActionController::Base
             redirect_to login_url
         end
     end
+    
+    def guest_user
+        @user = User.find_by(email: 'guest@example.com')
+        if @user
+            flash[:danger] = 'ゲストユーザーは編集・投稿が出来ません'
+            redirect_to '/'
+        end
+    end
 end

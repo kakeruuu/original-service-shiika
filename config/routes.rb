@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     post 'login', to: 'sessions#create'
     delete 'logout', to: 'sessions#destroy'
     
+    resources :guest_sessions, only: [:create]
+    
     get 'signup', to: 'users#new'
     resources :users, only: [:show, :new, :create, :edit, :update] do
         member do 
