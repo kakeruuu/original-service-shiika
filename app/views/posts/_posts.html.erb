@@ -16,6 +16,7 @@
                     <div class="d-flex align-items-center mt-2" id="time">
                         <%= post.created_at.to_s(:datetime_jp) %>
                     </div>
+                    <% if logged_in? %>
                     <div class="d-flex align-items-center mt-4">
                         <% if current_user == post.user %>
                             <%= link_to post, method: :delete, class: 'pl-1' do %>
@@ -24,6 +25,7 @@
                         <% end %>
                         <%= render 'favorites/favorite_button', post: post %>
                     </div>
+                    <% end %>
                 </div>
                 <div id="post-content" class="mr-3 ml-4 p-1 pt-5">
                     <p><%= post.content %></p>

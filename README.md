@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+概要
+俳句（川柳）・短歌を使って気持ちや出来事を投稿できるサービス。
+お試しの際はトップページの「かんたんログイン」ボタンを押すだけで投稿の閲覧が可能です。
 
-Things you may want to cover:
+機能一覧
+・かんたんログイン機能
+・＃タグ機能
+・投稿機能
+・投稿削除機能
+・ユーザー編集機能
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

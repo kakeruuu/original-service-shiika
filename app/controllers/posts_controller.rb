@@ -1,7 +1,10 @@
 class PostsController < ApplicationController
-  before_action :require_user_logged_in
+  before_action :require_user_logged_in, only: [:new, :create]
   before_action :correct_user, only: [:destroy]
-  before_action :guest_user, only: [:create]
+
+  def index 
+    @posts = Post.order(id: :desc).page(params[:page]).per(20)
+  end
   
   def new
     @post = Post.new
