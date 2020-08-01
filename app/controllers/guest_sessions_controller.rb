@@ -4,6 +4,6 @@ class GuestSessionsController < ApplicationController
         user = User.find_by(email: 'guest@example.com')
         session[:user_id] = user.id
         flash[:success] = 'ゲストユーザーとしてログインしました'
-        redirect_to user_path(user)
+        redirect_to '/'
     end
 end
