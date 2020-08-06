@@ -7,6 +7,15 @@
 <img src="https://i.gyazo.com/bfec58d183d8c2a884d111a80cabde07.gif" alt="Image from Gyazo" width="500"/>
 
 ## 技術一覧
+- 開発環境
+    - Cloud9 
+    - EC2 
+    - linux
+- フレームワーク
+    - bootstrap 
+    - rails
+- データベース
+    - MySQL
 - ＃タグ機能
 - 同じ＃タグを全て表示する機能
 - お気に入り登録・解除機能
@@ -26,15 +35,8 @@
 - ページネーション機能
     - `gem kaminari`
     
-- データベース
-    - MySQL
-- フレームワーク
-    - bootstrap 
-    - rails
-- 開発環境
-    - Cloud9 
-    - heroku 
-    - linuxコマンド
+
+
 
 
 
