@@ -4,7 +4,6 @@ class FavoritesController < ApplicationController
   def create
     post = Post.find(params[:post_id])
     post.favorite(current_user)
-    post.reload
     flash[:success] = 'お気に入りに登録しました'
     redirect_to '/'
   end
@@ -12,7 +11,6 @@ class FavoritesController < ApplicationController
   def destroy
     post = Post.find(params[:post_id])
     post.unfavorite(current_user)
-    post.reload
     flash[:danger] = 'お気に入りを解除しました'
     redirect_to '/'
   end
