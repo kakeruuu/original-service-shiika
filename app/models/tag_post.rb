@@ -1,4 +1,4 @@
 class TagPost < ApplicationRecord
-  belongs_to :post
-  belongs_to :tag
+    belongs_to :post
+    belongs_to :tag
 end

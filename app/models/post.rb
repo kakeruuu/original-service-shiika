@@ -1,9 +1,15 @@
 class Post < ApplicationRecord
-    validates :content, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'に使用できない文字が入ってます。または文字が入っていません。'}, length: { maximum: 9, message: 'の文字数が多すぎます' }
-    validates :two_content, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'に使用できない文字が入ってます。または文字が入っていません。'}, length: { maximum: 10, message: 'の文字数が多すぎます'}
-    validates :three_content, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'に使用できない文字が入ってます。または文字が入っていません。'}, length: { maximum: 9, message: 'の文字数が多すぎます' }
-    validates :four_content, format: { with: /\A[ぁ-んァ-ン一-龥]+|\A\z/, message: 'に使用できない文字が入ってます。' }, length: { maximum: 10, message: 'の文字数が多すぎます' }
-    validates :five_content, format: { with: /\A[ぁ-んァ-ン一-龥]+|\A\z/, message: 'に使用できない文字が入ってます。' }, length: { maximum: 10, message: 'の文字数が多すぎます' }
+    with_options length: { maximum: 10, message: '文字数が多すぎます' } do 
+        with_options format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'に使用できない文字が入ってます。または文字が入っていません。'} do
+            validates :content 
+            validates :two_content
+            validates :three_content
+        end
+        with_options format: { with: /\A[ぁ-んァ-ン一-龥]+|\A\z/, message: 'に使用できない文字が入ってます。' } do
+            validates :four_content
+            validates :five_content
+        end
+    end
     validates :hashtag, presence: { message: 'が入力されていません。'}
     
     belongs_to :user

@@ -1,10 +1,11 @@
 <div class="col-sm-6 offset-sm-3">
-    <h2 class="text-center border-bottom p-3">投&nbsp;&nbsp;稿</h2>
+    <h2 class="text-center border-bottom p-3">投稿</h2>
 </div>
 <div class="col-sm-6 offset-sm-3 mt-4">
     <%= form_with(model: @post, local:true) do |f| %>
     
         <%= render 'layouts/error_messages', model: f.object %>
+        
         <div class="border-bottom p-3">
             <div class="form-group row">
                 <%= f.label :content, '五：', class: 'col-sm-1 col-form-label'%>
